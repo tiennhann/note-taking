@@ -35,3 +35,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 # notion-clone
+Without any doubt, Notion is my favorite note-taking app and also note organization. I like the minimalism of the  website. This design philosophy focuses on the essence of the content creation, gracefully sidelining any superfluous interface distractions. 
+At the same time, Notion is packed with powerful features that make writing not just easier, but also more enjoyable.
+Fueled by a deep curiosity about Notion's elegant design and intricate workings, I've motivated myself to embark on the exciting journey of creating my own version of Notion.
+
+
