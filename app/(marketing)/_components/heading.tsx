@@ -14,7 +14,7 @@ export const Heading = () =>{
                 className="underline">Jotion</span>
             </h1>
 
-            <h3 className="text-base sm:text-xl md:tex2xl font-medium">
+            <h3 className="text-base sm:text-xl md:text-2xl font-medium">
                 Jotion is the connected workspace where <br />
                 better, faster work happens.
             </h3>
