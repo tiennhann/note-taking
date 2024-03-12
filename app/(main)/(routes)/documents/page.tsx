@@ -13,8 +13,9 @@ const DocumentsPage = () => {
     const { user } = useUser();
     const create = useMutation(api.documents.create);
 
+    // Create a new note, which send data to store in convex
     const onCreate = () => {
-        const promise = create({title: "Unititled"});
+        const promise = create({title: "Untitled"});
         toast.promise(promise, {
             loading: "Creating a new note...",
             success: "New note created",
