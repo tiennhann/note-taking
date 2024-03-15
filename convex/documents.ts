@@ -3,16 +3,36 @@ import { mutation, query } from "./_generated/server";
 import { Doc, Id } from "./_generated/dataModel";
 import exp from "constants";
 
-export const get = query({
-    handler: async (ctx) =>{
+export const getSidebar = query({
+    args:{
+        parentDocument: v.optional(v.id("documents"))
+    },
+    handler: async (ctx, args) => {
+        // User identity check, it checks if user is authenticated 
+        // by verifying the identity exists or not
         const identity = await ctx.auth.getUserIdentity();
-
         if (!identity) {
-            throw new Error("Not authenticated user");
+            throw new Error ("Not authenticated user");
         }
 
-        const documents = await ctx.db.query("documents").collect();
+        const userId = identity.subject;
 
+        const documents = await ctx.db
+            .query("documents")
+            // Uses an index by_user_parents to fletch documents
+            // by user ID and parent document ID. 
+            .withIndex("by_user_parents", (q) =>
+                q
+                    .eq("userId", userId)
+                    .eq("parentDocument", args.parentDocument)
+                )
+                // Filters documensts to exclude those are archived
+                .filter((q) =>
+                    q.eq(q.field("isArchived"), false)
+                )
+                // Orders the results in descending order
+                .order("desc")
+                .collect();
         return documents;
     }
 });
@@ -35,7 +55,7 @@ export const create = mutation({
             title: args.title,
             parentDocument: args.parentDocument,
             userId,
-            isArchieved: false,
+            isArchived: false,
             isPublished: false,
         });
 

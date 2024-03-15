@@ -34,7 +34,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# notion-clone
+# note-taking
 Without any doubt, Notion is my favorite note-taking app and also note organization. I like the minimalism of the  website. This design philosophy focuses on the essence of the content creation, gracefully sidelining any superfluous interface distractions. 
 At the same time, Notion is packed with powerful features that make writing not just easier, but also more enjoyable.
 
