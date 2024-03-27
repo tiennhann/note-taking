@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { api } from "@/convex/_generated/api";
+import { useSearch } from "@/hooks/use-search";
+import { useSettings } from "@/hooks/use-settings";
 
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 
@@ -17,6 +19,8 @@ import { DocumentList } from "./document-list";
 import { TrashBox } from "./trash-box";
 
 export const Navigation = () => {
+    const settings  = useSettings();
+    const searh  = useSearch();
     const pathname = usePathname();
     const isMobile = useMediaQuery("(max-width: 768px)");
     const create = useMutation(api.documents.create);
@@ -136,13 +140,13 @@ export const Navigation = () => {
                     label="Search"
                     icon={Search}
                     isSearch
-                    onClick={() => {}}
+                    onClick={searh.onOpen}
                 />
 
                 <Item
                     label="Settings"
                     icon={Settings}
-                    onClick={() => {}}
+                    onClick={settings.onOpen}
                 />
 
                 <Item 
